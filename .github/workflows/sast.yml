@@ -20,5 +20,5 @@ jobs:
           docker pull mixeway/scanner:latest
       - name: Run the scan
         run: |
-          docker run -e OSS_USERNAME=${env.spzc.OSS_USERNAME} -e OSS_KEY=${env.spzc.OSS_KEY} -e MIXEWAY_URL=https://hub.mixeway.io -e MIXEWAY_KEY=${env.spzc.MIXEWAY_KEY} -e MIXEWAY_PROJECT_ID=${env.spzc.MIXEWAY_PROJECT_ID} -e MODE=STANDALONE -e MIXEWAY_PROJECT_NAME=${env.spzc.MIXEWAY_PROJECT_NAME} -e COMMIT_ID=${GITHUB_SHA} -e BRANCH=${GITHUB_REF} -e SOURCES_LOCATION=/opt/sources/ -v ${GITHUB_WORKSPACE}:/opt/sources mixeway/scanner:latest
+          docker run -e OSS_USERNAME=${secrets.spzc.OSS_USERNAME} -e OSS_KEY=${secrets.spzc.OSS_KEY} -e MIXEWAY_URL=https://hub.mixeway.io -e MIXEWAY_KEY=${secrets.spzc.MIXEWAY_KEY} -e MIXEWAY_PROJECT_ID=${secrets.spzc.MIXEWAY_PROJECT_ID} -e MODE=STANDALONE -e MIXEWAY_PROJECT_NAME=${secrets.spzc.MIXEWAY_PROJECT_NAME} -e COMMIT_ID=${GITHUB_SHA} -e BRANCH=${GITHUB_REF} -e SOURCES_LOCATION=/opt/sources/ -v ${GITHUB_WORKSPACE}:/opt/sources mixeway/scanner:latest
 
